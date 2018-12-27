@@ -2,6 +2,7 @@ const { toWords } = require('number-to-words');
 
 const AM = 'am';
 const PM = 'pm';
+const MINUTES_IN_AN_HOUR = 60;
 
 function humanizeTime(time) {
   const re = /(AM|PM)/gi;
@@ -9,7 +10,6 @@ function humanizeTime(time) {
 
   const partOfDay = time.match(re)[0];
   // string that will contain the final time
-  let finalTime;
 
   let [hours, minutes] = time.match(digitRE);
 
@@ -17,21 +17,21 @@ function humanizeTime(time) {
   hours = Number(hours);
   minutes = Number(minutes);
 
-  if (partOfDay.toLowerCase() === AM) {
-    if (minutes < 30) {
-      finalTime = `${toWords(minutes).toUpperCase()} MINUTES PAST ${toWords(
-        hours
-      ).toUpperCase()}`;
-      return finalTime;
-    }
-  } else if (partOfDay.toLowerCase() === PM) {
-    //
+  if (minutes === 15) {
+    return `QUARTER PAST ${toWords(hours).toUpperCase()}`;
+  } else if (minutes === 30) {
+    return `HALF PAST ${toWords(hours).toUpperCase()}`;
+  } else if (minutes === 45) {
+    return `QUARTER TO ${toWords(hours + 1).toUpperCase()}`;
+  } else if (minutes < 30) {
+    return `${toWords(minutes).toUpperCase()} MINUTES PAST ${toWords(
+      hours
+    ).toUpperCase()}`;
   } else {
-    return 'Invalid time!!!';
+    return `${toWords(
+      MINUTES_IN_AN_HOUR - minutes
+    ).toUpperCase()} MINUTES TO ${toWords(hours + 1).toUpperCase()}`;
   }
 }
 
-// const str = "11:08am";
-// str.match(digitRE);
-
-console.log(humanizeTime('11:08am'));
+console.log(humanizeTime('7:47PM'));
