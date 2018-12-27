@@ -17,7 +17,9 @@ function humanizeTime(time) {
   hours = Number(hours);
   minutes = Number(minutes);
 
-  if (minutes === 15) {
+  if (minutes === 0) {
+    return `${toWords(hours).toUpperCase()} O'CLOCK`;
+  } else if (minutes === 15) {
     return `QUARTER PAST ${toWords(hours).toUpperCase()}`;
   } else if (minutes === 30) {
     return `HALF PAST ${toWords(hours).toUpperCase()}`;
@@ -34,4 +36,4 @@ function humanizeTime(time) {
   }
 }
 
-console.log(humanizeTime('7:47PM'));
+console.log(humanizeTime('7:00PM'));
