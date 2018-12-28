@@ -1,7 +1,7 @@
 const { toWords } = require('number-to-words');
 const { MINUTES_IN_AN_HOUR } = require('./constants');
 
-function humanizeTime(time) {
+const humanizeTime = (time) => {
   // const re = /(AM|PM)/gi;
   const digitRE = /\d+/g;
 
@@ -33,6 +33,6 @@ function humanizeTime(time) {
   return `${toWords(
     MINUTES_IN_AN_HOUR - minutes,
   ).toUpperCase()} MINUTES TO ${toWords(hours + 1).toUpperCase()}`;
-}
+};
 
-console.log(humanizeTime('7:00PM'));
+export default humanizeTime;

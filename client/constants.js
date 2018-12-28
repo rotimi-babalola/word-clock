@@ -1,9 +1,3 @@
-const AM = 'am';
-const PM = 'pm';
-const MINUTES_IN_AN_HOUR = 60;
-
-module.exports = {
-  AM,
-  PM,
-  MINUTES_IN_AN_HOUR,
-};
+export const AM = 'am';
+export const PM = 'pm';
+export const MINUTES_IN_AN_HOUR = 60;
