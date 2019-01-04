@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Clock from './Clock';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class DateGrid extends React.Component {
@@ -7,6 +8,7 @@ class DateGrid extends React.Component {
     return (
       <DateGrid.Container>
         <DateGrid.HeaderText>Word Clock</DateGrid.HeaderText>
+        <Clock />
       </DateGrid.Container>
     );
   }

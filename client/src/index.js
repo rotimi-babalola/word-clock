@@ -7,9 +7,7 @@ import './styles/global.css';
 
 const App = () => (
   <App.Container>
-    <App.InnerContainer>
-      <DateGrid />
-    </App.InnerContainer>
+    <DateGrid />
   </App.Container>
 );
 
@@ -17,10 +15,6 @@ App.Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-App.InnerContainer = styled.div`
-  width: 30%;
 `;
 
 export default App;

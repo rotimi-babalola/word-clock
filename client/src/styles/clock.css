@@ -1,0 +1,29 @@
+.clock {
+  width: 92vw;
+  height: 92vw;
+  max-width: 80vh;
+  max-height: 70vh;
+  background-color: #222;
+}
+
+glyph {
+  float: left;
+  display: block;
+  width: 6.25%;
+  height: 6.25%;
+  font-size: 2.6vh;
+  font-weight: 300;
+  line-height: 5.5vh;
+  text-align: center;
+  color: #696969;
+  transition: color 400ms ease-in-out;
+}
+@media screen and (min-height: 1200px) and (max-width: 1200px) {
+  glyph {
+    font-size: 1.6vh;
+  }
+}
+
+.on glyph {
+  color: white;
+}
