@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { toWords } from 'number-to-words';
+import initialTimeStructure from '../../time-structure';
 import '../styles/clock.css';
-import { ninvoke } from 'q';
 
 /* eslint react/no-unused-state:0 */
 
@@ -9,27 +10,12 @@ class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentHour: this.convertTo12Hour(new Date().getHours()),
-      currentMinute: new Date().getMinutes(),
-      prefixes: {
-        one: false,
-        two: false,
-        three: false,
-        four: false,
-        five: false,
-        six: false,
-        seven: false,
-        eight: false,
-        nine: false,
-        ten: false,
-        eleven: false,
-        twelve: false,
-      },
+      timeStructure: initialTimeStructure,
     };
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
+    this.timerID = setInterval(() => this.updateClock(new Date()), 1000);
   }
 
   componentWillUnmount() {
@@ -46,15 +32,33 @@ class Clock extends React.Component {
     return hour;
   };
 
-  tick = () => {
-    this.setState({
-      currentHour: this.convertTo12Hour(new Date().getHours()),
-      currentMinute: new Date().getMinutes(),
-    });
+  updateClock = (time) => {
+    const hour = this.convertTo12Hour(time.getHours());
+    const minutes = time.getMinutes();
+
+    // clear clock elements
+    this.setState(
+      {
+        timeStructure: initialTimeStructure,
+      },
+      this.parseTime(hour, minutes),
+    );
   };
 
-  active = () => {
-    //
+  parseTime = (hour, minutes) => {
+    if (minutes === 32) {
+      console.log('I am here');
+      this.setState({
+        timeStructure: {
+          ...this.state.timeStructure,
+          minute: true,
+          past: true,
+          // prefixes: {
+          //   one: true,
+          // },
+        },
+      });
+    }
   };
 
   render() {
