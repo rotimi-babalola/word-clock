@@ -242,7 +242,7 @@ class Clock extends React.Component {
         prefixes: {
           [toWords(hour)]: true,
         },
-        [`${toWords(tensPart)}-minutes`]: true,
+        [`${toWords(tensPart)}Minutes`]: true,
         suffixes: unitsPart
           ? {
               [toWords(unitsPart)]: true,
@@ -435,7 +435,7 @@ class Clock extends React.Component {
         <glyph>t</glyph>
         <glyph>o</glyph>
 
-        <word className="twenty">
+        <word className={classNames('twenty', { on: timeObject?.twenty })}>
           <glyph>t</glyph>
           <glyph>w</glyph>
           <glyph>e</glyph>
@@ -444,7 +444,7 @@ class Clock extends React.Component {
           <glyph>y</glyph>
         </word>
 
-        <words className="thirteen">
+        <words className={classNames('thirteen', { on: timeObject?.thirteen })}>
           <glyph>t</glyph>
           <glyph>h</glyph>
           <glyph>i</glyph>
@@ -458,7 +458,7 @@ class Clock extends React.Component {
         <glyph>a</glyph>
         <glyph>t</glyph>
 
-        <words className="fourteen">
+        <words className={classNames('fourteen', { on: timeObject?.fourteen })}>
           <glyph>f</glyph>
           <glyph>o</glyph>
           <glyph>u</glyph>
@@ -469,7 +469,7 @@ class Clock extends React.Component {
           <glyph>n</glyph>
         </words>
 
-        <words className="fifteen">
+        <words className={classNames('fifteen', { on: timeObject?.fifteen })}>
           <glyph>f</glyph>
           <glyph>i</glyph>
           <glyph>f</glyph>
@@ -481,19 +481,19 @@ class Clock extends React.Component {
 
         <glyph>s</glyph>
 
-        <words className="past">
+        <words className={classNames('past', { on: timeObject?.past })}>
           <glyph>p</glyph>
           <glyph>a</glyph>
           <glyph>s</glyph>
           <glyph>t</glyph>
         </words>
 
-        <word className="to">
+        <word className={classNames('to', { on: timeObject?.to })}>
           <glyph>t</glyph>
           <glyph>o</glyph>
         </word>
 
-        <word className="sixteen">
+        <word className={classNames('sixteen', { on: timeObject?.sixteen })}>
           <glyph>s</glyph>
           <glyph>i</glyph>
           <glyph>x</glyph>
@@ -507,7 +507,9 @@ class Clock extends React.Component {
         <glyph>k</glyph>
         <glyph>n</glyph>
 
-        <word className="seventeen">
+        <word
+          className={classNames('seventeen', { on: timeObject?.seventeen })}
+        >
           <glyph>s</glyph>
           <glyph>e</glyph>
           <glyph>v</glyph>
@@ -519,7 +521,11 @@ class Clock extends React.Component {
           <glyph>n</glyph>
         </word>
 
-        <word className="twenty-minutes">
+        <word
+          className={classNames('twentyMinutes', {
+            on: timeObject?.twentyMinutes,
+          })}
+        >
           <glyph>t</glyph>
           <glyph>w</glyph>
           <glyph>e</glyph>
@@ -530,7 +536,7 @@ class Clock extends React.Component {
 
         <glyph>a</glyph>
 
-        <word className="eighteen">
+        <word className={classNames('eighteen', { on: timeObject?.eighteen })}>
           <glyph>e</glyph>
           <glyph>i</glyph>
           <glyph>g</glyph>
@@ -541,7 +547,7 @@ class Clock extends React.Component {
           <glyph>n</glyph>
         </word>
 
-        <word className="nineteen">
+        <word className={classNames('nineteen', { on: timeObject?.nineteen })}>
           <glyph>n</glyph>
           <glyph>i</glyph>
           <glyph>n</glyph>
@@ -552,7 +558,11 @@ class Clock extends React.Component {
           <glyph>n</glyph>
         </word>
 
-        <word className="thirty-minutes">
+        <word
+          className={classNames('thirtyMinutes', {
+            on: timeObject?.thirtyMinutes,
+          })}
+        >
           <glyph>t</glyph>
           <glyph>h</glyph>
           <glyph>i</glyph>
@@ -561,7 +571,11 @@ class Clock extends React.Component {
           <glyph>y</glyph>
         </word>
 
-        <word className="forty-minutes">
+        <word
+          className={classNames('fortyMinutes', {
+            on: timeObject?.fortyMinutes,
+          })}
+        >
           <glyph>f</glyph>
           <glyph>o</glyph>
           <glyph>r</glyph>
@@ -569,7 +583,11 @@ class Clock extends React.Component {
           <glyph>y</glyph>
         </word>
 
-        <word className="fifty-minutes">
+        <word
+          className={classNames('fiftyMinutes', {
+            on: timeObject?.fiftyMinutes,
+          })}
+        >
           <glyph>f</glyph>
           <glyph>i</glyph>
           <glyph>f</glyph>
@@ -577,7 +595,7 @@ class Clock extends React.Component {
           <glyph>y</glyph>
         </word>
 
-        <word className="oclock">
+        <word className={classNames('oclock', { on: timeObject?.oclock })}>
           <glyph>o</glyph>
           <glyph>c</glyph>
           <glyph>l</glyph>
@@ -586,13 +604,21 @@ class Clock extends React.Component {
           <glyph>k</glyph>
         </word>
 
-        <word className="one suffix">
+        <word
+          className={classNames('one', 'suffix', {
+            on: timeObject?.suffixes?.one,
+          })}
+        >
           <glyph>o</glyph>
           <glyph>n</glyph>
           <glyph>e</glyph>
         </word>
 
-        <word className="two suffix">
+        <word
+          className={classNames('two', 'suffix', {
+            on: timeObject?.suffixes?.two,
+          })}
+        >
           <glyph>t</glyph>
           <glyph>w</glyph>
           <glyph>o</glyph>
@@ -603,7 +629,11 @@ class Clock extends React.Component {
         <glyph>o</glyph>
         <glyph>n</glyph>
 
-        <word className="three suffix">
+        <word
+          className={classNames('three', 'suffix', {
+            on: timeObject?.suffixes?.three,
+          })}
+        >
           <glyph>t</glyph>
           <glyph>h</glyph>
           <glyph>r</glyph>
@@ -611,27 +641,43 @@ class Clock extends React.Component {
           <glyph>e</glyph>
         </word>
 
-        <word className="four suffix">
+        <word
+          className={classNames('four', 'suffix', {
+            on: timeObject?.suffixes?.four,
+          })}
+        >
           <glyph>f</glyph>
           <glyph>o</glyph>
           <glyph>u</glyph>
           <glyph>r</glyph>
         </word>
 
-        <word className="five suffix">
+        <word
+          className={classNames('five', 'suffix', {
+            on: timeObject?.suffixes?.five,
+          })}
+        >
           <glyph>f</glyph>
           <glyph>i</glyph>
           <glyph>v</glyph>
           <glyph>e</glyph>
         </word>
 
-        <word className="six suffix">
+        <word
+          className={classNames('six', 'suffix', {
+            on: timeObject?.suffixes?.six,
+          })}
+        >
           <glyph>s</glyph>
           <glyph>i</glyph>
           <glyph>x</glyph>
         </word>
 
-        <word className="seven suffix">
+        <word
+          className={classNames('seven', 'suffix', {
+            on: timeObject?.suffixes?.seven,
+          })}
+        >
           <glyph>s</glyph>
           <glyph>e</glyph>
           <glyph>v</glyph>
@@ -639,7 +685,11 @@ class Clock extends React.Component {
           <glyph>n</glyph>
         </word>
 
-        <word className="eight suffix">
+        <word
+          className={classNames('eight', 'suffix', {
+            on: timeObject?.suffixes?.eight,
+          })}
+        >
           <glyph>e</glyph>
           <glyph>i</glyph>
           <glyph>g</glyph>
@@ -647,7 +697,11 @@ class Clock extends React.Component {
           <glyph>t</glyph>
         </word>
 
-        <word className="nine suffix">
+        <word
+          className={classNames('nine', 'suffix', {
+            on: timeObject?.suffixes?.nine,
+          })}
+        >
           <glyph>n</glyph>
           <glyph>i</glyph>
           <glyph>n</glyph>
@@ -657,13 +711,21 @@ class Clock extends React.Component {
         <glyph>i</glyph>
         <glyph>o</glyph>
 
-        <word className="ten suffix">
+        <word
+          className={classNames('ten', 'suffix', {
+            on: timeObject?.suffixes?.ten,
+          })}
+        >
           <glyph>t</glyph>
           <glyph>e</glyph>
           <glyph>n</glyph>
         </word>
 
-        <word className="eleven suffix">
+        <word
+          className={classNames('eleven', 'suffix', {
+            on: timeObject?.suffixes?.eleven,
+          })}
+        >
           <glyph>e</glyph>
           <glyph>l</glyph>
           <glyph>e</glyph>
@@ -672,7 +734,11 @@ class Clock extends React.Component {
           <glyph>n</glyph>
         </word>
 
-        <word className="twelve suffix">
+        <word
+          className={classNames('twelve', 'suffix', {
+            on: timeObject?.suffixes?.twelve,
+          })}
+        >
           <glyph>t</glyph>
           <glyph>w</glyph>
           <glyph>e</glyph>
